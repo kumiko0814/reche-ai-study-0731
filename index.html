@@ -108,6 +108,18 @@ ul.list li b{color:var(--navy2);}
   .vs .mid{justify-content:center;}
   body{overflow:auto;}
 }
+.cuewrap{max-width:760px; margin:0 auto; padding:16px 16px 60px;}
+.cuehead{position:sticky; top:0; background:var(--bg); padding:12px 4px; display:flex; justify-content:space-between; align-items:baseline; gap:10px; z-index:2;}
+.cuehead b{color:var(--navy2); font-size:17px;}
+.cuehead span{font-size:11px; color:#8a97a5;}
+.cuecard{background:#fff; border-radius:14px; padding:14px 16px; margin-top:12px; box-shadow:0 4px 14px rgba(38,64,95,.08);}
+.cuetop{display:flex; gap:10px; align-items:center; margin-bottom:6px;}
+.cueno{background:var(--navy); color:#fff; border-radius:8px; font-size:12px; font-weight:800; padding:2px 10px;}
+.cuetop b{color:var(--navy2); font-size:15px; flex:1; line-height:1.5;}
+.cuetime{font-size:11px; color:#8a97a5; font-weight:700; white-space:nowrap;}
+.cuecard p{font-size:13.5px; line-height:1.8; white-space:pre-line;}
+.cuenext{margin-top:8px; font-size:12px; color:var(--pink2); font-weight:800;}
+#nextcue{position:fixed; bottom:26px; left:50%; transform:translateX(-50%); background:rgba(29,49,73,.92); color:#fff; font-size:14px; font-weight:700; padding:8px 22px; border-radius:999px; z-index:9; display:none; letter-spacing:.05em; max-width:80vw; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
 </style>
 </head>
 <body>
@@ -124,7 +136,15 @@ ul.list li b{color:var(--navy2);}
   </div>
 </section>
 
-<!-- 2 はじめに -->
+<!-- 2 実演 -->
+<section class="slide">
+  <div class="timechip">21:00〜21:05</div>
+  <div class="inner centered">
+    <h1 style="font-size:clamp(84px,18vw,220px); color:var(--pink2); text-shadow:0 6px 0 rgba(38,64,95,.12);">実演！！</h1>
+  </div>
+</section>
+
+<!-- 3 はじめに -->
 <section class="slide">
   <div class="timechip">21:00〜21:10</div>
   <div class="inner">
@@ -535,21 +555,75 @@ ul.list li b{color:var(--navy2);}
 
 <script>
 (function(){
+  var NOTES=[
+  {t:"表紙", time:"21:00", n:"開始前からこの画面を表示。21:00になったら「はじめます」。自己紹介は名前だけ10秒。"},
+  {t:"実演！！", time:"21:00-05", n:"つかみデモ。例）Typelessに声で話しかける→Claudeに貼って一瞬で形にする／画像を1枚その場で生成。\n終わったら「今日の90分で、ここの入口まで連れていきます」と宣言して本編へ。"},
+  {t:"はじめに（声の紹介）", time:"21:05-10", n:"「アンケート約100名分、すべて読みました」。3つの声をゆっくり読み上げる。\n「今日はこの声から逆算して作った90分です」。"},
+  {t:"今日のゴール3つ", time:"21:05-10", n:"①距離感 ②使い分け ③頼み方。\n「後半、みなさんのやりたいことを目の前で1つ形にします」で期待づくり。"},
+  {t:"アンケート現在地", time:"21:05-10", n:"初級が約半分。でも「上級まで行きたい」が大多数。\n「気持ちはある、時間がない。だから自己流ではなく型が必要」→第1部へ。"},
+  {t:"第1部とびら", time:"21:10-25", n:"一呼吸おいて「一番危険なのは、自己流です」と言い切る。"},
+  {t:"課題動画の回収", time:"21:10-25", n:"「彼女は怠けていない。便利を積み重ねただけ」。\n※阿部監督の事例はここで口頭のみ（画面には出していない）。重くしすぎない。"},
+  {t:"3つの事故", time:"21:10-25", n:"丸投げ・鵜呑み・依存。\n締め：「事故の原因は性能ではなく、付き合い方を習っていないこと」←今日の背骨。"},
+  {t:"逆の実例（推理ゲーム）", time:"21:10-25", n:"種明かし：「作ったのはAIほぼ初めての私の友人。教えたのは60分」。\n差は才能ではなく、順番と型。"},
+  {t:"第2部とびら", time:"21:25-40", n:"仕分け術へ。"},
+  {t:"社長と秘書", time:"21:25-40", n:"合言葉「あなたが社長、AIは秘書」。\n決めるのは社長。ここを渡すと立場が入れ替わる。"},
+  {t:"3つの質問", time:"21:25-40", n:"①作業か決断か ②心が関わるか ③間違えたら誰が困るか。\nゆっくり2回くり返す。"},
+  {t:"仕分け早見表", time:"21:25-40", n:"覚えて帰る1行：「たたき台はAI、仕上げと決断はわたし」。\nスクショOKと伝える。"},
+  {t:"ミニワーク3分", time:"21:25-40", n:"チャットに「任せる：〇〇」「任せない：〇〇」を書いてもらう。\n2〜3人分読み上げて拾う。「正解はありません」と必ず言う。"},
+  {t:"第3部とびら", time:"21:40-50", n:"3つのAIの性格へ。"},
+  {t:"3人の秘書キャラ表", time:"21:40-50", n:"ChatGPT＝GPT Image 2で画像・LPが得意に（日本語の文字も描ける）。\nGemini＝Googleの中の作業。Claude＝作る右腕（私の一番の相棒）。\n課金は「毎日使うようになってから」でOK。"},
+  {t:"迷ったら3行ルール", time:"21:40-50", n:"「この1枚だけスクショしてください」。"},
+  {t:"第4部とびら", time:"21:50-22:05", n:"「結局、頼み方が9割」。"},
+  {t:"ダメな頼み方", time:"21:50-22:05", n:"新しい秘書に「よろしく」とだけ言って席に戻る例え。\nプロンプト＝呪文ではなく、頼み方の順番。"},
+  {t:"頼み方5点セット", time:"21:50-22:05", n:"役割・目的・材料・形・直す前提。\n「一発で完璧を求めない。往復して育てる」。"},
+  {t:"ビフォーアフター実演", time:"21:50-22:05", n:"画面共有で実演（説明文がおすすめ・リハ済みのお題で）。\nビフォーのふわっと感→5点セットで一変、を見せる。"},
+  {t:"音声入力＋Typeless", time:"21:50-22:05", n:"「打つのが苦手なら、話せばいい」。\nおすすめはTypeless。話すだけで整った文章になる。"},
+  {t:"第5部とびら（Cowork）", time:"22:05-15", n:"「作業ごと任せる、という新しい形」。"},
+  {t:"Coworkとは", time:"22:05-15", n:"チャット＝会話、Cowork＝机ごと渡す。\n実物3つ：このスライド・診断アンケート・推理ゲーム。\n※PC＋有料プラン向けの補足を忘れずに。"},
+  {t:"ライブデモ（献立）", time:"22:05-15", n:"アンケートの声「1週間の献立と買い物リストを予算内で」を5点セットで実演。\n※不調時は事前リハのスクショに即切替。\n締め：「特別なことはしていません。今日の型をそのまま使っただけです」。"},
+  {t:"今日のまとめ3つ", time:"22:15-25", n:"①自己流が一番危険 ②社長と秘書 ③頼み方5点セット。復唱する。"},
+  {t:"ここから先の話", time:"22:15-25", n:"上級まで行きたい×週30分〜2時間×自己投資0円が約6割。\n「一番高くつくのは、迷っている時間」→ご案内へ。"},
+  {t:"Merone AI活用ラボ案内", time:"22:15-25", n:"読み上げない。口頭で強調するのは3つだけ：\n①一般募集はしない（4社を月額100万円で支援している中身）\n②一般論ではなく「くみこならこう頼む」\n③カルテは私が直接見て判断して返す。\n※価格はまだ言わない。"},
+  {t:"受講料 45,900円", time:"22:15-25", n:"金額だけ静かに出して、2秒待つ。\n「分割はありません。お申込リンクはリアタイ参加のみなさまへLINEでお送りします」。"},
+  {t:"向いている方・向いていない方", time:"22:15-25", n:"圧をかけない。「合う方だけ来てください」のトーンで。"},
+  {t:"クロージング→質問タイム", time:"22:25-30", n:"締めの一言のあと質問タイムへ。\n※リアタイ特典（頼み方テンプレ3本）は口頭で告知：「今夜LINEで届きます。感想をひとことチャットにどうぞ」。"}
+  ];
+  var qs=new URLSearchParams(location.search);
+  if(qs.get('cue')==='1'){
+    document.body.style.overflow='auto';
+    document.getElementById('deck').style.display='none';
+    document.querySelector('.footerbar').style.display='none';
+    document.querySelector('.pager').style.display='none';
+    document.querySelector('.brand').style.display='none';
+    var w=document.createElement('div'); w.className='cuewrap';
+    var h='<div class="cuehead"><b>カンペ（進行メモ）</b><span>全'+NOTES.length+'枚｜Zoomで共有するのは ?cue なしの通常URL</span></div>';
+    for(var k=0;k<NOTES.length;k++){
+      var nx=(k<NOTES.length-1)?NOTES[k+1].t:'（終了）';
+      h+='<div class="cuecard"><div class="cuetop"><span class="cueno">'+(k+1)+'</span><b>'+NOTES[k].t+'</b><span class="cuetime">'+NOTES[k].time+'</span></div><p>'+NOTES[k].n+'</p><div class="cuenext">次▶ '+nx+'</div></div>';
+    }
+    w.innerHTML=h;
+    document.body.appendChild(w);
+    return;
+  }
   var slides=[].slice.call(document.querySelectorAll('.slide'));
   var i=0, total=slides.length;
   var prog=document.getElementById('prog'), counter=document.getElementById('counter');
+  var nextcue=document.createElement('div'); nextcue.id='nextcue'; document.body.appendChild(nextcue);
+  function updateCue(){ nextcue.textContent='次▶ '+((i<total-1&&NOTES[i+1])?NOTES[i+1].t:'（終了）'); }
   function show(n){
     if(n<0)n=0; if(n>total-1)n=total-1;
     slides[i].classList.remove('active');
     i=n; slides[i].classList.add('active');
     counter.textContent=(i+1)+' / '+total;
     prog.style.width=((i+1)/total*100)+'%';
+    updateCue();
   }
   document.getElementById('next').onclick=function(){show(i+1);};
   document.getElementById('prev').onclick=function(){show(i-1);};
   document.addEventListener('keydown',function(e){
     if(e.key==='ArrowRight'||e.key===' '||e.key==='Enter'){show(i+1);}
     if(e.key==='ArrowLeft'){show(i-1);}
+    if(e.key==='c'||e.key==='C'){nextcue.style.display=(nextcue.style.display==='block')?'none':'block';}
   });
   var sx=null;
   document.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
