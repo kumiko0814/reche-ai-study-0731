@@ -144,7 +144,22 @@ ul.list li b{color:var(--navy2);}
   </div>
 </section>
 
-<!-- 3 はじめに -->
+<!-- 3 サボる努力 -->
+<section class="slide">
+  <div class="timechip">21:00〜21:05</div>
+  <div class="inner centered">
+    <h2 style="font-size:clamp(28px,5.6vw,52px); margin-bottom:6px;">AIは、サボるための<br>ものでは<span class="em">ない！！</span></h2>
+    <p class="lead" style="margin-bottom:18px;">サボるのにも、努力が必要。</p>
+    <p class="sub">森川がサボるためにかけた時間とトークンは——</p>
+    <div class="cards c2" style="max-width:760px; margin:14px auto 0;">
+      <div class="card"><p class="big" style="font-size:clamp(40px,7vw,72px);">253<span style="font-size:.4em;">時間</span></p></div>
+      <div class="card pink"><p class="big" style="font-size:clamp(40px,7vw,72px);">71<span style="font-size:.4em;">億トークン</span></p></div>
+    </div>
+    <p class="note">2026年4月〜7月・Claude作業ログの実測値（チャットでの相談分は含まず）</p>
+  </div>
+</section>
+
+<!-- 4 はじめに -->
 <section class="slide">
   <div class="timechip">21:00〜21:10</div>
   <div class="inner">
@@ -510,12 +525,19 @@ ul.list li b{color:var(--navy2);}
   </div>
 </section>
 
-<!-- 28 受講料のみ -->
+<!-- 29 受講料 -->
 <section class="slide">
   <div class="timechip">22:15〜22:25</div>
   <div class="inner centered">
     <div class="kicker">受講料</div>
-    <h1 style="font-size:clamp(60px,12vw,150px); letter-spacing:.02em;">45,900<span style="font-size:.32em; font-weight:700;">円（税込）</span></h1>
+    <h1 style="font-size:clamp(52px,10.5vw,130px); letter-spacing:.02em;">45,900<span style="font-size:.32em; font-weight:700;">円（税込）</span></h1>
+    <p class="lead" style="margin-top:4px;">銀行振込の場合：<b style="color:var(--pink2);">43,500円（税込）</b></p>
+    <div class="cards c3" style="max-width:860px; margin:20px auto 0;">
+      <div class="card"><h3>勉強会 第1回</h3><p class="big">8/11（火）</p></div>
+      <div class="card"><h3>勉強会 第2回</h3><p class="big">8/16（日）</p></div>
+      <div class="card"><h3>勉強会 第3回</h3><p class="big">8/28（金）</p></div>
+    </div>
+    <p class="sub" style="margin-top:12px;">すべてアーカイブつき。リアタイできなくても大丈夫です。</p>
   </div>
 </section>
 
@@ -557,7 +579,8 @@ ul.list li b{color:var(--navy2);}
 (function(){
   var NOTES=[
   {t:"表紙", time:"21:00", n:"開始前からこの画面を表示。21:00になったら「はじめます」。自己紹介は名前だけ10秒。"},
-  {t:"実演！！", time:"21:00-05", n:"つかみデモ。例）Typelessに声で話しかける→Claudeに貼って一瞬で形にする／画像を1枚その場で生成。\n終わったら「今日の90分で、ここの入口まで連れていきます」と宣言して本編へ。"},
+  {t:"実演！！", time:"21:00-05", n:"つかみデモ。例）Typelessに声で話しかける→Claudeに貼って一瞬で形にする／画像を1枚その場で生成。"},
+  {t:"AIはサボるためのものではない", time:"21:00-05", n:"実演の種明かしフック。「ラクするために、これだけ積み上げました」\n253時間・71億トークン＝4月からのClaude作業ログ実測。\n「今日の90分は、この積み重ねの入口です」→はじめにへ。"},
   {t:"はじめに（声の紹介）", time:"21:05-10", n:"「アンケート約100名分、すべて読みました」。3つの声をゆっくり読み上げる。\n「今日はこの声から逆算して作った90分です」。"},
   {t:"今日のゴール3つ", time:"21:05-10", n:"①距離感 ②使い分け ③頼み方。\n「後半、みなさんのやりたいことを目の前で1つ形にします」で期待づくり。"},
   {t:"アンケート現在地", time:"21:05-10", n:"初級が約半分。でも「上級まで行きたい」が大多数。\n「気持ちはある、時間がない。だから自己流ではなく型が必要」→第1部へ。"},
@@ -584,7 +607,7 @@ ul.list li b{color:var(--navy2);}
   {t:"今日のまとめ3つ", time:"22:15-25", n:"①自己流が一番危険 ②社長と秘書 ③頼み方5点セット。復唱する。"},
   {t:"ここから先の話", time:"22:15-25", n:"上級まで行きたい×週30分〜2時間×自己投資0円が約6割。\n「一番高くつくのは、迷っている時間」→ご案内へ。"},
   {t:"Merone AI活用ラボ案内", time:"22:15-25", n:"読み上げない。口頭で強調するのは4つだけ：\n①一般募集はしない（4社を月額100万円で支援している中身）\n②100名限定\n③一般論ではなく「くみこならこう頼む」\n④カルテは私が直接見て判断して返す。\n※価格はまだ言わない。"},
-  {t:"受講料 45,900円", time:"22:15-25", n:"金額だけ静かに出して、2秒待つ。\n「分割はありません。お申込リンクはリアタイ参加のみなさまへLINEでお送りします」。"},
+  {t:"受講料 45,900円", time:"22:15-25", n:"金額を静かに出して、2秒待つ。\n「銀行振込の場合は43,500円です」\n勉強会は8/11(火)・8/16(日)・8/28(金)、すべてアーカイブあり。\n「分割はありません。お申込リンクはリアタイ参加のみなさまへLINEでお送りします」。"},
   {t:"向いている方・向いていない方", time:"22:15-25", n:"圧をかけない。「合う方だけ来てください」のトーンで。"},
   {t:"クロージング→質問タイム", time:"22:25-30", n:"締めの一言のあと質問タイムへ。\n※リアタイ特典（頼み方テンプレ3本）は口頭で告知：「今夜LINEで届きます。感想をひとことチャットにどうぞ」。"}
   ];
