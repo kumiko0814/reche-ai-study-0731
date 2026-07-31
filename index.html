@@ -7,16 +7,16 @@
 <title>AIに使われる人、AIを使いこなす人。｜Re:che AI勉強会 7/31</title>
 <style>
 :root{
-  --bg:#f1f7fb; --bg2:#eaf3fa; --card:#ffffff;
+  --bg:#f6f1f9; --bg2:#f1eaf7; --card:#ffffff;
   --navy:#26405f; --navy2:#1d3149;
   --pink:#cf8f9c; --pink2:#bd7886; --pinkbg:#fbeef1;
-  --blue:#7fb0d2; --text:#4a4446;
+  --blue:#8f9fd8; --text:#4a4446;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html,body{height:100%;}
 body{
   font-family:"Yu Gothic","YuGothic","Hiragino Kaku Gothic ProN","Hiragino Sans",sans-serif;
-  background:var(--bg); color:var(--text); overflow:hidden;
+  background:linear-gradient(168deg,#f4edf8 0%,#faf7fb 50%,#fbeef1 100%); color:var(--text); overflow:hidden;
   -webkit-font-smoothing:antialiased;
 }
 .deck{position:relative;width:100%;height:100%;}
@@ -514,7 +514,7 @@ ul.list li b{color:var(--navy2);}
     </div>
     <div class="cards c3">
       <div class="card"><h3>勉強会 全3回</h3><p>一般論ではなく「くみこならこう頼む」。私の脳みそを覗ける、ここでしか学べない内容です。</p></div>
-      <div class="card"><h3>あなた専用カルテ<span style="display:inline-block; background:var(--pink2); color:#fff; font-size:.62em; padding:2px 10px; border-radius:999px; margin-left:8px; vertical-align:middle;">実装済み</span></h3><p>毎日でも悩みを送れる専用ページ。くみこが直接お返しし、悩みの傾向・思考のくせ・合うAI活用プランまで自動で分析します。</p></div>
+      <div class="card"><h3>あなた専用カルテ</h3><p>毎日でも悩みを送れる専用ページ。くみこが直接お返しし、悩みの傾向・思考のくせ・合うAI活用プランまで自動で分析します。</p></div>
       <div class="card"><h3>3つのAIへの頼み方</h3><p>ChatGPT・Gemini・Claude。それぞれへの「くみこ流の依頼文」をそのままお渡しします。</p></div>
     </div>
     <div class="cards c3" style="margin-top:10px;">
@@ -523,6 +523,26 @@ ul.list li b{color:var(--navy2);}
       <div class="card pink"><h3>最終ミッション</h3><p>自分用に1つ、身近な人用に1つ。アプリを2つ作り終えたら卒業です。</p></div>
     </div>
     <p class="sub" style="margin-top:10px;">8月8日（土）開講。最初は講義ではなく、あなたの課題の炙り出しから。勉強会は8/11（火）・8/16（日）・8/28（金）の全3回、アーカイブつきです。</p>
+  </div>
+</section>
+
+<!-- 28 カルテ実物画面 -->
+<section class="slide">
+  <div class="timechip">22:15〜22:25</div>
+  <div class="inner">
+    <div class="kicker pink">実物画面</div>
+    <h2>あなた専用カルテは、<span class="em">もう動いています。</span></h2>
+    <div style="display:flex; gap:clamp(16px,3vw,44px); align-items:flex-start;">
+      <img src="img/karte-form.png" alt="AIカルテ 入力画面" style="height:clamp(270px,50vh,430px); width:auto; border-radius:16px; box-shadow:0 12px 32px rgba(38,64,95,.18); border:1px solid #e8dcef;">
+      <img src="img/karte-ana.png" alt="AIカルテ 分析レポート画面" style="height:clamp(270px,50vh,430px); width:auto; border-radius:16px; box-shadow:0 12px 32px rgba(38,64,95,.18); border:1px solid #e8dcef;">
+      <div style="flex:1; min-width:0;">
+        <div class="card" style="margin-bottom:clamp(8px,1.6vh,14px);"><p><b style="color:var(--navy2);">書くのは2問だけ。</b>1分で送れて、毎日でも大丈夫です。</p></div>
+        <div class="card" style="margin-bottom:clamp(8px,1.6vh,14px);"><p><b style="color:var(--navy2);">くみこから直接お返事</b>が、あなたのページに届きます。</p></div>
+        <div class="card" style="margin-bottom:clamp(8px,1.6vh,14px);"><p>悩みの傾向・思考のくせ・合うAI活用プランを<b style="color:var(--pink2);">自動で分析</b>します。</p></div>
+        <div class="card pink"><p>画面の右下には<b style="color:var(--navy2);">AIくみこが24時間常駐</b>。夜中でも相談できます。</p></div>
+        <p class="sub" style="margin-top:clamp(8px,1.8vh,14px);">ご入会後、あなた専用のURLをお渡しします。</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -608,6 +628,7 @@ ul.list li b{color:var(--navy2);}
   {t:"今日のまとめ3つ", time:"22:15-25", n:"①自己流が一番危険 ②社長と秘書 ③頼み方5点セット。復唱する。"},
   {t:"ここから先の話", time:"22:15-25", n:"上級まで行きたい×週30分〜2時間×自己投資0円が約6割。\n「一番高くつくのは、迷っている時間」→ご案内へ。"},
   {t:"Merone AI活用ラボ案内", time:"22:15-25", n:"読み上げない。口頭で強調するのは5つ：\n①一般募集はしない（4社を月額100万円で支援している中身）\n②100名限定\n③一般論ではなく「くみこならこう頼む」\n④カルテは「実装済み」＝もう動いている。毎日送れて、悩みの傾向・思考のくせまで自動分析\n⑤AIくみこが24時間常駐（夜中でも相談できる）。\n勉強会は8/11火・8/16日・8/28金。※価格はまだ言わない。"},
+  {t:"カルテ実物画面", time:"22:15-25", n:"「実は、もう動いています」で画面を見せる。\n左=2問書くだけ→私に届く／右=自動分析（悩みの傾向・思考のくせ）\n右下にAIくみこ24時間。\n締め:「入会したその日から使えます」→次で価格。"},
   {t:"受講料 45,900円", time:"22:15-25", n:"金額を静かに出して、2秒待つ。\n「銀行振込の場合は43,500円です」\n勉強会は8/11(火)・8/16(日)・8/28(金)、すべてアーカイブあり。\n「分割はありません。お申込リンクはリアタイ参加のみなさまへLINEでお送りします」。"},
   {t:"向いている方・向いていない方", time:"22:15-25", n:"圧をかけない。「合う方だけ来てください」のトーンで。"},
   {t:"クロージング→質問タイム", time:"22:25-30", n:"締めの一言のあと質問タイムへ。\n※リアタイ特典（頼み方テンプレ3本）は口頭で告知：「今夜LINEで届きます。感想をひとことチャットにどうぞ」。"}
